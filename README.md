@@ -1,4 +1,4 @@
-# motivationskalendern
+# Motivationskalendern
 
 ## Project setup
 ```

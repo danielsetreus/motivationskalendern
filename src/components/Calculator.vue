@@ -23,14 +23,14 @@
                 <Value :value="timeToGo" />
             </div>
 
+            <TimeChart class="chart" :chartData="chartData" :options="chartOptions" />
+
             <div class="header small">
                 <b-badge variant="secondary">Spenderat</b-badge>
             </div>
             <div class="value small">
                 <Value :value="timeSpent" />
             </div>
-
-            <TimeChart class="chart" :chart-data="chartData" />
         </div>
 
         <div class="stats">
@@ -75,11 +75,17 @@ export default {
             grossEarned: '',
             moneyEarned: 0,
             chartData: {},
+            chartOptions: {
+                tooltips: {
+                    enabled: false,
+                }
+            }
         }
     },
     methods: {
         startTicker() {
             this.interval = setInterval(this.setValues, 1000);
+            // this.setValues()
         },
         stopTicker() {
             clearInterval(this.interval);
@@ -160,7 +166,7 @@ export default {
                     ],
                     label: 'Tid i missionen',
                 }],
-                labels: ['Spenderat', 'Kvar']
+                labels: ['Spenderat', 'Kvar'],
             }
         }
     },
